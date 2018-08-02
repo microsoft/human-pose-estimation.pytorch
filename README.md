@@ -5,7 +5,7 @@ This is an official pytorch implementation of [*Simple Baselines for Pose Estima
 
 ## Main Results
 ### Results on MPII val
-| arch | Head | Shoulder | Elbow | Wrist | Hip | Knee | Ankle | Mean | Mean@0.1|
+| Arch | Head | Shoulder | Elbow | Wrist | Hip | Knee | Ankle | Mean | Mean@0.1|
 |---|---|---|---|---|---|---|---|---|---|
 | 256x256_pose_resnet_50_d256d256d256 | 96.351 | 95.329 | 88.989 | 83.176 | 88.420 | 83.960 | 79.594 | 88.532 | 33.911 |
 | 384x384_pose_resnet_50_d256d256d256 | 96.658 | 95.754 | 89.790 | 84.614 | 88.523 | 84.666 | 79.287 | 89.066 | 38.046 |
@@ -19,7 +19,7 @@ This is an official pytorch implementation of [*Simple Baselines for Pose Estima
 
 ### Results on COCO val2017 with detector having human AP of 56.4 on COCO val2017 dataset
 | Arch | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) |
-|---|---|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|---|---|---|
 | 256x192_pose_resnet_50_d256d256d256 | 0.704 | 0.886 | 0.783 | 0.671 | 0.772 | 0.763 | 0.929 | 0.834 | 0.721 | 0.824 |
 | 384x288_pose_resnet_50_d256d256d256 | 0.722 | 0.893 | 0.789 | 0.681 | 0.797 | 0.776 | 0.932 | 0.838 | 0.728 | 0.846 |
 | 256x192_pose_resnet_101_d256d256d256 | 0.714 | 0.893 | 0.793 | 0.681 | 0.781 | 0.771 | 0.934 | 0.840 | 0.730 | 0.832 |
@@ -185,4 +185,16 @@ python pose_estimation/valid.py \
 ```
 python pose_estimation/train.py \
     --cfg experiments/mpii/resnet50/256x256_d256x3_adam_lr1e-3.yaml
+```
+
+
+### Citation
+If you use our code or models in your research, please cite with
+```
+@inproceedings{xiao2018simple,
+    author={Xiao, Bin and Wu, Haiping and Wei, Yichen},
+    title={Simple Baselines for Human Pose Estimation and Tracking},
+    booktitle = {European Conference on Computer Vision (ECCV)},
+    year = {2018}
+}
 ```
