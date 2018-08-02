@@ -1,0 +1,72 @@
+GPUS: '0'
+DATA_DIR: ''
+OUTPUT_DIR: 'output'
+LOG_DIR: 'log'
+WORKERS: 4
+PRINT_FREQ: 100
+CUDNN:
+  BENCHMARK: True
+  DETERMINISTIC: False
+  ENABLED: True
+DATASET:
+  DATASET: mpii
+  ROOT: 'data/mpii/'
+  TEST_SET: valid
+  TRAIN_SET: train
+  FLIP: true
+  ROT_FACTOR: 30
+  SCALE_FACTOR: 0.25
+MODEL:
+  NAME: pose_resnet
+  PRETRAINED: 'models/pytorch/imagenet/resnet101-5d3b4d8f.pth'
+  IMAGE_SIZE:
+  - 256
+  - 256
+  NUM_JOINTS: 16
+  EXTRA:
+    TARGET_TYPE: gaussian
+    SIGMA: 2
+    HEATMAP_SIZE:
+    - 64
+    - 64
+    FINAL_CONV_KERNEL: 1
+    DECONV_WITH_BIAS: false
+    NUM_DECONV_LAYERS: 3
+    NUM_DECONV_FILTERS:
+    - 256
+    - 256
+    - 256
+    NUM_DECONV_KERNELS:
+    - 4
+    - 4
+    - 4
+    NUM_LAYERS: 101
+LOSS:
+  USE_TARGET_WEIGHT: true
+TRAIN:
+  BATCH_SIZE: 32
+  SHUFFLE: true
+  BEGIN_EPOCH: 0
+  END_EPOCH: 140
+  RESUME: false
+  OPTIMIZER: adam
+  LR: 0.001
+  LR_FACTOR: 0.1
+  LR_STEP:
+  - 90
+  - 120
+  WD: 0.0001
+  GAMMA1: 0.99
+  GAMMA2: 0.0
+  MOMENTUM: 0.9
+  NESTEROV: false
+TEST:
+  BATCH_SIZE: 32
+  FLIP_TEST: false
+  MODEL_FILE: ''
+DEBUG:
+  DEBUG: false
+  SAVE_BATCH_IMAGES_GT: true
+  SAVE_BATCH_IMAGES_PRED: true
+  SAVE_HEATMAPS_GT: true
+  SAVE_HEATMAPS_PRED: true

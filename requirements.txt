@@ -1,0 +1,9 @@
+EasyDict==1.7
+opencv-python==3.4.1.15
+Cython
+scipy
+pandas
+pyyaml
+json_tricks
+scikit-image
+tensorboardX
