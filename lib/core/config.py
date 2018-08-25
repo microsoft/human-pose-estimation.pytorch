@@ -113,6 +113,8 @@ config.TEST.IN_VIS_THRE = 0.0
 config.TEST.COCO_BBOX_FILE = ''
 config.TEST.BBOX_THRE = 1.0
 config.TEST.MODEL_FILE = ''
+config.TEST.IMAGE_THRE = 0.0
+config.TEST.NMS_THRE = 1.0
 
 # debug
 config.DEBUG = edict()
