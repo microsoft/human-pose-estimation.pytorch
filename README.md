@@ -32,7 +32,7 @@ This is an official pytorch implementation of [*Simple Baselines for Pose Estima
 - Person detector has person AP of 56.4 on COCO val2017 dataset 
 
 ## Environment
-The code is developed using python3.6 on Ubutnu16.04. NVIDIA GPUs ared needed. The code is developed and tested using 4 NVIDIA P100 GPUS cards. Other platform or GPU card are not fully tested.
+The code is developed using python 3.6 on Ubuntu 16.04. NVIDIA GPUs ared needed. The code is developed and tested using 4 NVIDIA P100 GPUS cards. Other platform or GPU card are not fully tested.
 
 ## Quick start
 ### Installation
