@@ -94,7 +94,7 @@ The code is developed using python3.6 on Ubutnu16.04. NVIDIA GPUs ared needed. T
 4. Init output(training model output directory) and log(tensorboard log directory) directory.
 
    ```
-   mkdir ouput 
+   mkdir output 
    mkdir log
    ```
 
