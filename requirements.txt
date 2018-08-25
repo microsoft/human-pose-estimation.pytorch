@@ -7,3 +7,4 @@ pyyaml
 json_tricks
 scikit-image
 tensorboardX
+torchvision
