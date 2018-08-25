@@ -106,7 +106,7 @@ def main():
     }
 
     dump_input = torch.rand((config.TRAIN.BATCH_SIZE,
-                             config.MODEL.NUM_JOINTS,
+                             3,
                              config.MODEL.IMAGE_SIZE[1],
                              config.MODEL.IMAGE_SIZE[0]))
     writer_dict['writer'].add_graph(model, (dump_input, ))
