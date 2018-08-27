@@ -392,7 +392,12 @@ class COCODataset(JointsDataset):
         coco_eval.params.useSegm = None
         coco_eval.evaluate()
         coco_eval.accumulate()
-        info_str = coco_eval.summarize()
+        coco_eval.summarize()
+        stats_names = ['AP', 'Ap .5', 'AP .75', 'AP (M)', 'AP (L)', 'AR', 'AR .5', 'AR .75', 'AR (M)', 'AR (L)']
+
+        info_str = []
+        for ind, name in enumerate(stats_names):
+            info_str.append((name, coco_eval.stats[ind]))
 
         eval_file = os.path.join(
             res_folder, 'keypoints_%s_results.pkl' % self.image_set)

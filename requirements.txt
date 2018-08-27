@@ -6,5 +6,5 @@ pandas
 pyyaml
 json_tricks
 scikit-image
-tensorboardX
+tensorboardX>=1.2
 torchvision
