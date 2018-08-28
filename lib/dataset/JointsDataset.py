@@ -75,6 +75,10 @@ class JointsDataset(Dataset):
             data_numpy = cv2.imread(
                 image_file, cv2.IMREAD_COLOR | cv2.IMREAD_IGNORE_ORIENTATION)
 
+        if data_numpy is None:
+            logger.error('=> fail to read {}'.format(image_file))
+            raise ValueError('Fail to read {}'.format(image_file))
+
         joints = db_rec['joints_3d']
         joints_vis = db_rec['joints_3d_vis']
 
