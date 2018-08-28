@@ -51,6 +51,11 @@ The code is developed using python 3.6 on Ubuntu 16.04. NVIDIA GPUs ared needed.
    ```
    pip install -r requirements.txt
    ```
+3. Make libs
+   ```
+   cd ${POSE_ROOT}/lib
+   make
+   ```
 3. Install [COCOAPI](https://github.com/cocodataset/cocoapi):
    ```
    # COCOAPI=/path/to/clone/cocoapi
