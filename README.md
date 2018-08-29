@@ -1,7 +1,7 @@
-# Simple Baselines for Pose Estimation and Tracking
+# Simple Baselines for Human Pose Estimation and Tracking
 
 ## Introduction
-This is an official pytorch implementation of [*Simple Baselines for Pose Estimation and Tracking*](https://arxiv.org/abs/1804.06208). This work provides baseline methods that are surprisingly simple and effective, thus helpful for inspiring and evaluating new ideas for the field. State-of-the-art results are achieved on challenging benchmarks. On COCO keypoints valid dataset, our best **single model** achieves **74.3 of mAP**. You can reproduce our results using this repo. All models are provided for research purpose.    </br>
+This is an official pytorch implementation of [*Simple Baselines for Human Pose Estimation and Tracking*](https://arxiv.org/abs/1804.06208). This work provides baseline methods that are surprisingly simple and effective, thus helpful for inspiring and evaluating new ideas for the field. State-of-the-art results are achieved on challenging benchmarks. On COCO keypoints valid dataset, our best **single model** achieves **74.3 of mAP**. You can reproduce our results using this repo. All models are provided for research purpose.    </br>
 
 ## Main Results
 ### Results on MPII val
