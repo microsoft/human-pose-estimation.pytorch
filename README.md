@@ -19,7 +19,7 @@ This is an official pytorch implementation of [*Simple Baselines for Human Pose 
 | 384x384_pose_resnet_152_d256d256d256 | 96.794 | 95.618 | 90.080 | 86.225 | 89.700 | 86.862 | 82.853 | 90.200 | 39.433 |
 
 ### Note:
-- Flip test is used
+- The flip test is used
 
 ### Results on COCO val2017 with detector having human AP of 56.4 on COCO val2017 dataset
 | Arch | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) |
@@ -32,11 +32,11 @@ This is an official pytorch implementation of [*Simple Baselines for Human Pose 
 | 384x288_pose_resnet_152_d256d256d256 | 0.743 | 0.896 | 0.811 | 0.705 | 0.816 | 0.797 | 0.937 | 0.858 | 0.751 | 0.863 |
 
 ### Note:
-- Flip test is used
+- The flip test is used
 - Person detector has person AP of 56.4 on COCO val2017 dataset 
 
 ## Environment
-The code is developed using python 3.6 on Ubuntu 16.04. NVIDIA GPUs are needed. The code is developed and tested using 4 NVIDIA P100 GPU cards. Other platforms or GPU cards are not fully tested.
+The code is developed using python 3.6 on Ubuntu 16.04. NVIDIA GPUs are needed. The code is developed and tested using 4 NVIDIA P100 GPU cards. Other platforms or GPU cards are not thoroughly tested.
 
 ## Quick start
 ### Installation
@@ -72,8 +72,8 @@ The code is developed using python 3.6 on Ubuntu 16.04. NVIDIA GPUs are needed. 
    python3 setup.py install --user
    ```
    Note that instructions like # COCOAPI=/path/to/install/cocoapi indicate that you should pick a path where you'd like to have the software cloned and then set an environment variable (COCOAPI in this case) accordingly.
-3. Download pytorch imagenet pretrained models from [pytorch model zoo](https://pytorch.org/docs/stable/model_zoo.html#module-torch.utils.model_zoo). 
-4. Download mpii and coco pretrained models from [OneDrive](https://1drv.ms/f/s!AhIXJn_J-blW0D5ZE4ArK9wk_fvw) or [GoogleDrive](https://drive.google.com/drive/folders/13_wJ6nC7my1KKouMkQMqyr9r1ZnLnukP?usp=sharing). Please download them under ${POSE_ROOT}/models/pytorch, and make them look like this:
+3. Download pytorch imagenet pre-trained models from [pytorch model zoo](https://pytorch.org/docs/stable/model_zoo.html#module-torch.utils.model_zoo). 
+4. Download mpii and coco pre-trained models from [OneDrive](https://1drv.ms/f/s!AhIXJn_J-blW0D5ZE4ArK9wk_fvw) or [GoogleDrive](https://drive.google.com/drive/folders/13_wJ6nC7my1KKouMkQMqyr9r1ZnLnukP?usp=sharing). Please download them under ${POSE_ROOT}/models/pytorch, and make them look like this:
 
    ```
    ${POSE_ROOT}
