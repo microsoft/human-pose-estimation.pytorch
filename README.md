@@ -19,7 +19,7 @@ This is an official pytorch implementation of [*Simple Baselines for Human Pose 
 | 384x384_pose_resnet_152_d256d256d256 | 96.794 | 95.618 | 90.080 | 86.225 | 89.700 | 86.862 | 82.853 | 90.200 | 39.433 |
 
 ### Note:
-- Flip test is used
+- Flip test is used.
 
 ### Results on COCO val2017 with detector having human AP of 56.4 on COCO val2017 dataset
 | Arch | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) |
@@ -32,16 +32,16 @@ This is an official pytorch implementation of [*Simple Baselines for Human Pose 
 | 384x288_pose_resnet_152_d256d256d256 | 0.743 | 0.896 | 0.811 | 0.705 | 0.816 | 0.797 | 0.937 | 0.858 | 0.751 | 0.863 |
 
 ### Note:
-- Flip test is used
-- Person detector has person AP of 56.4 on COCO val2017 dataset 
+- Flip test is used.
+- Person detector has person AP of 56.4 on COCO val2017 dataset.
 
 ## Environment
 The code is developed using python 3.6 on Ubuntu 16.04. NVIDIA GPUs are needed. The code is developed and tested using 4 NVIDIA P100 GPU cards. Other platforms or GPU cards are not fully tested.
 
 ## Quick start
 ### Installation
-1. Install pytorch >= v0.4.0 following [official instruction](https://pytorch.org/)
-2. Disable cudnn for batch_norm
+1. Install pytorch >= v0.4.0 following [official instruction](https://pytorch.org/).
+2. Disable cudnn for batch_norm:
    ```
    # PYTORCH=/path/to/pytorch
    # for pytorch v0.4.0
@@ -50,12 +50,12 @@ The code is developed using python 3.6 on Ubuntu 16.04. NVIDIA GPUs are needed. 
    sed -i "1254s/torch\.backends\.cudnn\.enabled/False/g" ${PYTORCH}/torch/nn/functional.py
    ```
    Note that instructions like # PYTORCH=/path/to/pytorch indicate that you should pick a path where you'd like to have pytorch installed  and then set an environment variable (PYTORCH in this case) accordingly.
-1. Clone this repo, and we'll call the directory that you cloned as ${POSE_ROOT}
-2. Install dependencies.
+1. Clone this repo, and we'll call the directory that you cloned as ${POSE_ROOT}.
+2. Install dependencies:
    ```
    pip install -r requirements.txt
    ```
-3. Make libs
+3. Make libs:
    ```
    cd ${POSE_ROOT}/lib
    make
@@ -100,14 +100,14 @@ The code is developed using python 3.6 on Ubuntu 16.04. NVIDIA GPUs are needed. 
 
    ```
 
-4. Init output(training model output directory) and log(tensorboard log directory) directory.
+4. Init output(training model output directory) and log(tensorboard log directory) directory:
 
    ```
    mkdir output 
    mkdir log
    ```
 
-   and your directory tree should look like this
+   Your directory tree should look like this:
 
    ```
    ${POSE_ROOT}
@@ -198,7 +198,7 @@ python pose_estimation/train.py \
 
 
 ### Citation
-If you use our code or models in your research, please cite with
+If you use our code or models in your research, please cite with:
 ```
 @inproceedings{xiao2018simple,
     author={Xiao, Bin and Wu, Haiping and Wei, Yichen},
