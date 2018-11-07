@@ -278,12 +278,16 @@ class PoseResNet(nn.Module):
             if isinstance(checkpoint, OrderedDict):
                 state_dict = checkpoint
             elif isinstance(checkpoint, dict) and 'state_dict' in checkpoint:
-                state_dict = checkpoint['state_dict']
+                state_dict_old = checkpoint['state_dict']
+                state_dict = OrderedDict()
                 # delete 'module.' because it is saved from DataParallel module
-                for key in state_dict.keys():
+                for key in state_dict_old.keys():
                     if key.startswith('module.'):
-                        state_dict[key[7:]] = state_dict[key]
-                        state_dict.pop(key)
+                        # state_dict[key[7:]] = state_dict[key]
+                        # state_dict.pop(key)
+                        state_dict[key[7:]] = state_dict_old[key]
+                    else:
+                        state_dict[key] = state_dict_old[key]
             else:
                 raise RuntimeError(
                     'No state_dict found in checkpoint file {}'.format(pretrained))
