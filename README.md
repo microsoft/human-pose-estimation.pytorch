@@ -31,9 +31,18 @@ This is an official pytorch implementation of [*Simple Baselines for Human Pose 
 | 256x192_pose_resnet_152_d256d256d256 | 0.720 | 0.893 | 0.798 | 0.687 | 0.789 | 0.778 | 0.934 | 0.846 | 0.736 | 0.839 |
 | 384x288_pose_resnet_152_d256d256d256 | 0.743 | 0.896 | 0.811 | 0.705 | 0.816 | 0.797 | 0.937 | 0.858 | 0.751 | 0.863 |
 
+
+#### Results on Caffe-style ResNet
+| Arch | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 256x192_pose_resnet_50_caffe_d256d256d256 | 0.704 | 0.914 | 0.782 | 0.677 | 0.744 | 0.735 | 0.921 | 0.805 | 0.704 | 0.783 |
+| 256x192_pose_resnet_101_caffe_d256d256d256 | 0.720 | 0.915 | 0.803 | 0.693 | 0.764 | 0.753 | 0.928 | 0.821 | 0.720 | 0.802 |
+
+
 ### Note:
 - Flip test is used.
 - Person detector has person AP of 56.4 on COCO val2017 dataset.
+- Difference between PyTorch-style and Caffe-style ResNet is the position of stride=2 convolution
 
 ## Environment
 The code is developed using python 3.6 on Ubuntu 16.04. NVIDIA GPUs are needed. The code is developed and tested using 4 NVIDIA P100 GPU cards. Other platforms or GPU cards are not fully tested.
