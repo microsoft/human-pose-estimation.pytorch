@@ -15,7 +15,7 @@ DATASET:
   SCALE_FACTOR: 0.3
 MODEL:
   NAME: 'pose_resnet'
-  PRETRAINED: 'models/pytorch/imagenet/resnet101-caffe.pth'
+  PRETRAINED: 'models/pytorch/imagenet/resnet101-caffe.pth.tar'
   STYLE: 'caffe'
   IMAGE_SIZE:
   - 192
