@@ -32,17 +32,18 @@ This is an official pytorch implementation of [*Simple Baselines for Human Pose 
 | 384x288_pose_resnet_152_d256d256d256 | 0.743 | 0.896 | 0.811 | 0.705 | 0.816 | 0.797 | 0.937 | 0.858 | 0.751 | 0.863 |
 
 
-#### Results on Caffe-style ResNet
+### Results on *Caffe-style* ResNet
 | Arch | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 256x192_pose_resnet_50_caffe_d256d256d256 | 0.704 | 0.914 | 0.782 | 0.677 | 0.744 | 0.735 | 0.921 | 0.805 | 0.704 | 0.783 |
-| 256x192_pose_resnet_101_caffe_d256d256d256 | 0.720 | 0.915 | 0.803 | 0.693 | 0.764 | 0.753 | 0.928 | 0.821 | 0.720 | 0.802 |
+| 256x192_pose_resnet_50_*caffe*_d256d256d256 | 0.704 | 0.914 | 0.782 | 0.677 | 0.744 | 0.735 | 0.921 | 0.805 | 0.704 | 0.783 |
+| 256x192_pose_resnet_101_*caffe*_d256d256d256 | 0.720 | 0.915 | 0.803 | 0.693 | 0.764 | 0.753 | 0.928 | 0.821 | 0.720 | 0.802 |
+| 256x192_pose_resnet_152_*caffe*_d256d256d256 | 0.728 | 0.925 | 0.804 | 0.702 | 0.766 | 0.760 | 0.931 | 0.828 | 0.729 | 0.806 |
 
 
 ### Note:
 - Flip test is used.
 - Person detector has person AP of 56.4 on COCO val2017 dataset.
-- Difference between PyTorch-style and Caffe-style ResNet is the position of stride=2 convolution
+- Difference between *PyTorch-style* and *Caffe-style* ResNet is the position of stride=2 convolution
 
 ## Environment
 The code is developed using python 3.6 on Ubuntu 16.04. NVIDIA GPUs are needed. The code is developed and tested using 4 NVIDIA P100 GPU cards. Other platforms or GPU cards are not fully tested.
@@ -81,7 +82,7 @@ The code is developed using python 3.6 on Ubuntu 16.04. NVIDIA GPUs are needed. 
    python3 setup.py install --user
    ```
    Note that instructions like # COCOAPI=/path/to/install/cocoapi indicate that you should pick a path where you'd like to have the software cloned and then set an environment variable (COCOAPI in this case) accordingly.
-3. Download pytorch imagenet pretrained models from [pytorch model zoo](https://pytorch.org/docs/stable/model_zoo.html#module-torch.utils.model_zoo). 
+3. Download pytorch imagenet pretrained models from [pytorch model zoo](https://pytorch.org/docs/stable/model_zoo.html#module-torch.utils.model_zoo) and caffe-style pretrained models from [GoogleDrive](https://drive.google.com/drive/folders/1yJMSFOnmzwhA4YYQS71Uy7X1Kl_xq9fN?usp=sharing). 
 4. Download mpii and coco pretrained models from [OneDrive](https://1drv.ms/f/s!AhIXJn_J-blW0D5ZE4ArK9wk_fvw) or [GoogleDrive](https://drive.google.com/drive/folders/13_wJ6nC7my1KKouMkQMqyr9r1ZnLnukP?usp=sharing). Please download them under ${POSE_ROOT}/models/pytorch, and make them look like this:
 
    ```
@@ -90,8 +91,11 @@ The code is developed using python 3.6 on Ubuntu 16.04. NVIDIA GPUs are needed. 
         `-- pytorch
             |-- imagenet
             |   |-- resnet50-19c8e357.pth
+            |   |-- resnet50-caffe.pth.tar
             |   |-- resnet101-5d3b4d8f.pth
-            |   `-- resnet152-b121ed2d.pth
+            |   |-- resnet101-caffe.pth.tar
+            |   |-- resnet152-b121ed2d.pth
+            |   `-- resnet152-caffe.pth.tar
             |-- pose_coco
             |   |-- pose_resnet_101_256x192.pth.tar
             |   |-- pose_resnet_101_384x288.pth.tar
@@ -193,16 +197,16 @@ python pose_estimation/train.py \
 
 ```
 python pose_estimation/valid.py \
-    --cfg experiments/mpii/resnet50/256x256_d256x3_adam_lr1e-3.yaml \
+    --cfg experiments/coco/resnet50/256x192_d256x3_adam_lr1e-3.yaml \
     --flip-test \
-    --model-file models/pytorch/pose_coco/pose_resnet_50_256x256.pth.tar
+    --model-file models/pytorch/pose_coco/pose_resnet_50_256x192.pth.tar
 ```
 
 ### Training on COCO train2017
 
 ```
 python pose_estimation/train.py \
-    --cfg experiments/mpii/resnet50/256x256_d256x3_adam_lr1e-3.yaml
+    --cfg experiments/coco/resnet50/256x192_d256x3_adam_lr1e-3.yaml
 ```
 
 
