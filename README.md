@@ -196,7 +196,7 @@ python pose_estimation/train.py \
 
 ```
 python pose_estimation/valid.py \
-    --cfg experiments/mpii/resnet50/256x256_d256x3_adam_lr1e-3.yaml \
+    --cfg experiments/coco/resnet50/256x192_d256x3_adam_lr1e-3.yaml \
     --flip-test \
     --model-file models/pytorch/pose_coco/pose_resnet_50_256x256.pth.tar
 ```
@@ -205,7 +205,7 @@ python pose_estimation/valid.py \
 
 ```
 python pose_estimation/train.py \
-    --cfg experiments/mpii/resnet50/256x256_d256x3_adam_lr1e-3.yaml
+    --cfg experiments/coco/resnet50/256x192_d256x3_adam_lr1e-3.yaml
 ```
 
 
