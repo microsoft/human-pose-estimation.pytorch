@@ -213,6 +213,7 @@ python pose_estimation/train.py \
 ### Other Implementations
 - TensorFlow [[Version1](https://github.com/mks0601/TF-SimpleHumanPose)]
 - PaddlePaddle [[Version1](https://github.com/PaddlePaddle/models/tree/develop/fluid/PaddleCV/human_pose_estimation)]
+- Gluon [[Version1](https://gluon-cv.mxnet.io/model_zoo/pose.html)]
 
 ### Citation
 If you use our code or models in your research, please cite with:
