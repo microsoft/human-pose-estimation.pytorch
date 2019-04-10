@@ -1,6 +1,7 @@
 # Simple Baselines for Human Pose Estimation and Tracking
 
 ## News
+- Our new work [High-Resolution Representations for Labeling Pixels and Regions](https://arxiv.org/abs/1904.04514) is available at [HRNet](https://github.com/HRNet). Our HRNet has been applied to a wide range of vision tasks, such as [image classification](https://github.com/HRNet/HRNet-Image-Classification), [objection detection](https://github.com/HRNet/HRNet-Object-Detection), [semantic segmentation](https://github.com/HRNet/HRNet-Semantic-Segmentation) and [facial landmark](https://github.com/HRNet/HRNet-Facial-Landmark-Detection).
 - Our new work [Deep High-Resolution Representation Learning for Human Pose Estimation](https://github.com/leoxiaobin/deep-high-resolution-net.pytorch) has already been released at <https://github.com/leoxiaobin/deep-high-resolution-net.pytorch>. The best single HRNet can obtain an **AP of 77.0** on COCO test-dev2017 dataset and **92.3% of PCKh@0.5** on MPII test set. The new repositoty also support the SimpleBaseline method, and you are welcomed to try it.<br>
 - Our entry using this repo has won the winner of [PoseTrack2018 Multi-person Pose Tracking Challenge](https://posetrack.net/workshops/eccv2018/posetrack_eccv_2018_results.html)!<br>
 - Our entry using this repo ranked 2nd place in the [keypoint detection task of COCO 2018](http://cocodataset.org/#keypoints-leaderboard)!
