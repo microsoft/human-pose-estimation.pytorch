@@ -105,3 +105,6 @@ venv.bak/
 /output
 /models
 /log
+
+#idea
+.idea/

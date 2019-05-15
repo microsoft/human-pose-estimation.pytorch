@@ -319,4 +319,10 @@ def get_pose_net(cfg, is_train, **kwargs):
     if is_train and cfg.MODEL.INIT_WEIGHTS:
         model.init_weights(cfg.MODEL.PRETRAINED)
 
+    if cfg.MODEL.FREEZE:
+        freeze_imbalance(model)
     return model
+
+def freeze_imbalance(model):
+    print(model.feature)
+    pass

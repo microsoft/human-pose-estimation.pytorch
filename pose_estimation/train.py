@@ -30,6 +30,7 @@ from core.config import get_model_name
 from core.loss import JointsMSELoss
 from core.function import train
 from core.function import validate
+from core.imba import ImbalancedDatasetSampler
 from utils.utils import get_optimizer
 from utils.utils import save_checkpoint
 from utils.utils import create_logger
@@ -164,6 +165,15 @@ def main():
         pin_memory=True
     )
 
+    if config.TRAIN.IMBA:
+        train_loader =torch.utils.data.DataLoader(
+            train_dataset,
+            batch_size=config.TRAIN.BATCH_SIZE*len(gpus),
+            shuffle=config.TRAIN.SHUFFLE,
+            sampler=ImbalancedDatasetSampler(train_dataset),
+            num_workers=config.WORKERS,
+            pin_memory=True
+    )
     best_perf = 0.0
     best_model = False
     for epoch in range(config.TRAIN.BEGIN_EPOCH, config.TRAIN.END_EPOCH):

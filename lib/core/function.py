@@ -34,7 +34,7 @@ def train(config, train_loader, model, criterion, optimizer, epoch,
 
     # switch to train mode
     model.train()
-
+    model.parameters()
     end = time.time()
     for i, (input, target, target_weight, meta) in enumerate(train_loader):
         # measure data loading time
