@@ -132,7 +132,6 @@ The code is developed using python 3.6 on Ubuntu 16.04. NVIDIA GPUs are needed. 
    ├── log
    ├── models
    ├── output
-   ├── pose_estimation
    ├── README.md
    └── requirements.txt
    ```
@@ -182,7 +181,7 @@ ${POSE_ROOT}
 ### Valid on MPII using pretrained models
 
 ```
-python pose_estimation/valid.py \
+python valid.py \
     --cfg experiments/mpii/resnet50/256x256_d256x3_adam_lr1e-3.yaml \
     --flip-test \
     --model-file models/pytorch/pose_mpii/pose_resnet_50_256x256.pth.tar
@@ -191,14 +190,14 @@ python pose_estimation/valid.py \
 ### Training on MPII
 
 ```
-python pose_estimation/train.py \
+python train.py \
     --cfg experiments/mpii/resnet50/256x256_d256x3_adam_lr1e-3.yaml
 ```
 
 ### Valid on COCO val2017 using pretrained models
 
 ```
-python pose_estimation/valid.py \
+python valid.py \
     --cfg experiments/coco/resnet50/256x192_d256x3_adam_lr1e-3.yaml \
     --flip-test \
     --model-file models/pytorch/pose_coco/pose_resnet_50_256x192.pth.tar
@@ -207,7 +206,7 @@ python pose_estimation/valid.py \
 ### Training on COCO train2017
 
 ```
-python pose_estimation/train.py \
+python train.py \
     --cfg experiments/coco/resnet50/256x192_d256x3_adam_lr1e-3.yaml
 ```
 

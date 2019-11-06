@@ -5,7 +5,7 @@ import torch.nn as nn
 
 class JointsMSELoss(nn.Module):
     def __init__(self, use_target_weight):
-        super(JointsMSELoss, self).__init__()
+        super().__init__()
         self.criterion = nn.MSELoss(reduction='mean')
         self.use_target_weight = use_target_weight
 
