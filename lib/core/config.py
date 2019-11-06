@@ -1,6 +1,4 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
+from __future__ import absolute_import, division, print_function
 
 import os
 import yaml
@@ -123,10 +121,12 @@ config.DEBUG.SAVE_HEATMAPS_PRED = False
 def _update_dict(k, v):
     if k == 'DATASET':
         if 'MEAN' in v and v['MEAN']:
-            v['MEAN'] = np.array([eval(x) if isinstance(x, str) else x
+            # eval is removed here
+            v['MEAN'] = np.array([float(x) if isinstance(x, str) else x
                                   for x in v['MEAN']])
         if 'STD' in v and v['STD']:
-            v['STD'] = np.array([eval(x) if isinstance(x, str) else x
+            # eval is removed here
+            v['STD'] = np.array([float(x) if isinstance(x, str) else x
                                  for x in v['STD']])
     if k == 'MODEL':
         if 'EXTRA' in v and 'HEATMAP_SIZE' in v['EXTRA']:

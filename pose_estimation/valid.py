@@ -5,9 +5,7 @@
 # ------------------------------------------------------------------------------
 
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
+from __future__ import absolute_import, division, print_function
 
 import argparse
 import os
@@ -114,7 +112,7 @@ def main():
     torch.backends.cudnn.deterministic = config.CUDNN.DETERMINISTIC
     torch.backends.cudnn.enabled = config.CUDNN.ENABLED
 
-    model = eval('models.' + config.MODEL.NAME + '.get_pose_net')(
+    model = getattr(models, config.MODEL.NAME).get_pose_net(
         config, is_train=False
     )
 
@@ -138,7 +136,7 @@ def main():
     # Data loading code
     normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                      std=[0.229, 0.224, 0.225])
-    valid_dataset = eval('dataset.' + config.DATASET.DATASET)(
+    valid_dataset = getattr(dataset, config.DATASET.DATASET)(
         config,
         config.DATASET.ROOT,
         config.DATASET.TEST_SET,

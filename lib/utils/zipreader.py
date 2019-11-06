@@ -1,8 +1,4 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
-import os
+ from __future__ import absolute_import, division, print_functionimport os
 import zipfile
 import xml.etree.ElementTree as ET
 
