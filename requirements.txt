@@ -1,10 +1,10 @@
-EasyDict==1.7
-opencv-python==3.4.1.15
+EasyDict
+opencv-python
 Cython
 scipy
 pandas
 pyyaml
 json_tricks
 scikit-image
-tensorboardX>=1.2
+tensorboardX
 torchvision

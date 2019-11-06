@@ -1,16 +1,10 @@
-# ------------------------------------------------------------------------------
-# Copyright (c) Microsoft
-# Licensed under the MIT License.
-# Written by Bin Xiao (Bin.Xiao@microsoft.com)
-# ------------------------------------------------------------------------------
-
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
 import numpy as np
 
-from core.inference import get_max_preds
+from lib.core.inference import get_max_preds
 
 
 def calc_dists(preds, target, normalize):

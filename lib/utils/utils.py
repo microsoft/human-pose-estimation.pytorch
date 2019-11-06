@@ -1,9 +1,3 @@
-# ------------------------------------------------------------------------------
-# Copyright (c) Microsoft
-# Licensed under the MIT License.
-# Written by Bin Xiao (Bin.Xiao@microsoft.com)
-# ------------------------------------------------------------------------------
-
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -16,7 +10,7 @@ from pathlib import Path
 import torch
 import torch.optim as optim
 
-from core.config import get_model_name
+from lib.core.config import get_model_name
 
 
 def create_logger(cfg, cfg_name, phase='train'):
@@ -49,7 +43,7 @@ def create_logger(cfg, cfg_name, phase='train'):
     logging.getLogger('').addHandler(console)
 
     tensorboard_log_dir = Path(cfg.LOG_DIR) / dataset / model / \
-        (cfg_name + '_' + time_str)
+                          (cfg_name + '_' + time_str)
     print('=> creating {}'.format(tensorboard_log_dir))
     tensorboard_log_dir.mkdir(parents=True, exist_ok=True)
 

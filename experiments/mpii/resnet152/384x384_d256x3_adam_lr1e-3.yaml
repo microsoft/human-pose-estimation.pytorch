@@ -20,26 +20,26 @@ MODEL:
   NAME: pose_resnet
   PRETRAINED: 'models/pytorch/imagenet/resnet152-b121ed2d.pth'
   IMAGE_SIZE:
-  - 384
-  - 384
+    - 384
+    - 384
   NUM_JOINTS: 16
   EXTRA:
     TARGET_TYPE: gaussian
     SIGMA: 3
     HEATMAP_SIZE:
-    - 96
-    - 96
+      - 96
+      - 96
     FINAL_CONV_KERNEL: 1
     DECONV_WITH_BIAS: false
     NUM_DECONV_LAYERS: 3
     NUM_DECONV_FILTERS:
-    - 256
-    - 256
-    - 256
+      - 256
+      - 256
+      - 256
     NUM_DECONV_KERNELS:
-    - 4
-    - 4
-    - 4
+      - 4
+      - 4
+      - 4
     NUM_LAYERS: 152
 LOSS:
   USE_TARGET_WEIGHT: true
@@ -53,8 +53,8 @@ TRAIN:
   LR: 0.001
   LR_FACTOR: 0.1
   LR_STEP:
-  - 90
-  - 120
+    - 90
+    - 120
   WD: 0.0001
   GAMMA1: 0.99
   GAMMA2: 0.0

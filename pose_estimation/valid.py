@@ -21,15 +21,15 @@ import torch.utils.data
 import torch.utils.data.distributed
 import torchvision.transforms as transforms
 
-import _init_paths
-from core.config import config
-from core.config import update_config
-from core.config import update_dir
-from core.loss import JointsMSELoss
-from core.function import validate
-from utils.utils import create_logger
+import pose_estimation._init_paths
+from lib.core.config import config
+from lib.core.config import update_config
+from lib.core.config import update_dir
+from lib.core.loss import JointsMSELoss
+from lib.core.function import validate
+from lib.utils.utils import create_logger
 
-import dataset
+import lib.dataset as dataset
 import models
 
 
@@ -114,7 +114,7 @@ def main():
     torch.backends.cudnn.deterministic = config.CUDNN.DETERMINISTIC
     torch.backends.cudnn.enabled = config.CUDNN.ENABLED
 
-    model = eval('models.'+config.MODEL.NAME+'.get_pose_net')(
+    model = eval('models.' + config.MODEL.NAME + '.get_pose_net')(
         config, is_train=False
     )
 
@@ -138,7 +138,7 @@ def main():
     # Data loading code
     normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                      std=[0.229, 0.224, 0.225])
-    valid_dataset = eval('dataset.'+config.DATASET.DATASET)(
+    valid_dataset = eval('dataset.' + config.DATASET.DATASET)(
         config,
         config.DATASET.ROOT,
         config.DATASET.TEST_SET,
@@ -150,7 +150,7 @@ def main():
     )
     valid_loader = torch.utils.data.DataLoader(
         valid_dataset,
-        batch_size=config.TEST.BATCH_SIZE*len(gpus),
+        batch_size=config.TEST.BATCH_SIZE * len(gpus),
         shuffle=False,
         num_workers=config.WORKERS,
         pin_memory=True

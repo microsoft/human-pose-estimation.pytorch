@@ -1,9 +1,3 @@
-# ------------------------------------------------------------------------------
-# Copyright (c) Microsoft
-# Licensed under the MIT License.
-# Written by Bin Xiao (Bin.Xiao@microsoft.com)
-# ------------------------------------------------------------------------------
-
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -14,7 +8,7 @@ import numpy as np
 import torchvision
 import cv2
 
-from core.inference import get_max_preds
+from lib.core.inference import get_max_preds
 
 
 def save_batch_image_with_joints(batch_image, batch_joints, batch_joints_vis,
@@ -70,23 +64,23 @@ def save_batch_heatmaps(batch_image, batch_heatmaps, file_name,
     heatmap_height = batch_heatmaps.size(2)
     heatmap_width = batch_heatmaps.size(3)
 
-    grid_image = np.zeros((batch_size*heatmap_height,
-                           (num_joints+1)*heatmap_width,
+    grid_image = np.zeros((batch_size * heatmap_height,
+                           (num_joints + 1) * heatmap_width,
                            3),
                           dtype=np.uint8)
 
     preds, maxvals = get_max_preds(batch_heatmaps.detach().cpu().numpy())
 
     for i in range(batch_size):
-        image = batch_image[i].mul(255)\
-                              .clamp(0, 255)\
-                              .byte()\
-                              .permute(1, 2, 0)\
-                              .cpu().numpy()
-        heatmaps = batch_heatmaps[i].mul(255)\
-                                    .clamp(0, 255)\
-                                    .byte()\
-                                    .cpu().numpy()
+        image = batch_image[i].mul(255) \
+            .clamp(0, 255) \
+            .byte() \
+            .permute(1, 2, 0) \
+            .cpu().numpy()
+        heatmaps = batch_heatmaps[i].mul(255) \
+            .clamp(0, 255) \
+            .byte() \
+            .cpu().numpy()
 
         resized_image = cv2.resize(image,
                                    (int(heatmap_width), int(heatmap_height)))
@@ -99,13 +93,13 @@ def save_batch_heatmaps(batch_image, batch_heatmaps, file_name,
                        1, [0, 0, 255], 1)
             heatmap = heatmaps[j, :, :]
             colored_heatmap = cv2.applyColorMap(heatmap, cv2.COLORMAP_JET)
-            masked_image = colored_heatmap*0.7 + resized_image*0.3
+            masked_image = colored_heatmap * 0.7 + resized_image * 0.3
             cv2.circle(masked_image,
                        (int(preds[i][j][0]), int(preds[i][j][1])),
                        1, [0, 0, 255], 1)
 
-            width_begin = heatmap_width * (j+1)
-            width_end = heatmap_width * (j+2)
+            width_begin = heatmap_width * (j + 1)
+            width_end = heatmap_width * (j + 2)
             grid_image[height_begin:height_end, width_begin:width_end, :] = \
                 masked_image
             # grid_image[height_begin:height_end, width_begin:width_end, :] = \

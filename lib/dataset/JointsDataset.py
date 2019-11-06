@@ -1,9 +1,3 @@
-# ------------------------------------------------------------------------------
-# Copyright (c) Microsoft
-# Licensed under the MIT License.
-# Written by Bin Xiao (Bin.Xiao@microsoft.com)
-# ------------------------------------------------------------------------------
-
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -17,10 +11,7 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset
 
-from utils.transforms import get_affine_transform
-from utils.transforms import affine_transform
-from utils.transforms import fliplr_joints
-
+from lib.utils.transforms import get_affine_transform, affine_transform, fliplr_joints
 
 logger = logging.getLogger(__name__)
 
@@ -57,7 +48,7 @@ class JointsDataset(Dataset):
     def evaluate(self, cfg, preds, output_dir, *args, **kwargs):
         raise NotImplementedError
 
-    def __len__(self,):
+    def __len__(self, ):
         return len(self.db)
 
     def __getitem__(self, idx):
@@ -90,8 +81,8 @@ class JointsDataset(Dataset):
         if self.is_train:
             sf = self.scale_factor
             rf = self.rotation_factor
-            s = s * np.clip(np.random.randn()*sf + 1, 1 - sf, 1 + sf)
-            r = np.clip(np.random.randn()*rf, -rf*2, rf*2) \
+            s = s * np.clip(np.random.randn() * sf + 1, 1 - sf, 1 + sf)
+            r = np.clip(np.random.randn() * rf, -rf * 2, rf * 2) \
                 if random.random() <= 0.6 else 0
 
             if self.flip and random.random() <= 0.5:
@@ -152,11 +143,11 @@ class JointsDataset(Dataset):
 
             joints_x, joints_y = joints_x / num_vis, joints_y / num_vis
 
-            area = rec['scale'][0] * rec['scale'][1] * (self.pixel_std**2)
+            area = rec['scale'][0] * rec['scale'][1] * (self.pixel_std ** 2)
             joints_center = np.array([joints_x, joints_y])
             bbox_center = np.array(rec['center'])
-            diff_norm2 = np.linalg.norm((joints_center-bbox_center), 2)
-            ks = np.exp(-1.0*(diff_norm2**2) / ((0.2)**2*2.0*area))
+            diff_norm2 = np.linalg.norm((joints_center - bbox_center), 2)
+            ks = np.exp(-1.0 * (diff_norm2 ** 2) / ((0.2) ** 2 * 2.0 * area))
 
             metric = (0.2 / 16) * num_vis + 0.45 - 0.2 / 16
             if ks > metric:

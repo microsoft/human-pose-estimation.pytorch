@@ -25,7 +25,7 @@ def cpu_nms(np.ndarray[np.float32_t, ndim=2] dets, np.float thresh):
 
     cdef int ndets = dets.shape[0]
     cdef np.ndarray[np.int_t, ndim=1] suppressed = \
-            np.zeros((ndets), dtype=np.int)
+        np.zeros((ndets), dtype=np.int)
 
     # nominal indices
     cdef int _i, _j
