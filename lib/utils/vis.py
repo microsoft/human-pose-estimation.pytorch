@@ -2,9 +2,9 @@ from __future__ import absolute_import, division, print_function
 
 import math
 
+import cv2
 import numpy as np
 import torchvision
-import cv2
 
 from lib.core.inference import get_max_preds
 

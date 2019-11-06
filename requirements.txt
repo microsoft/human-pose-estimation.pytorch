@@ -5,6 +5,8 @@ scipy
 pandas
 pyyaml
 json_tricks
+numpy
 scikit-image
+torch
 tensorboardX
 torchvision

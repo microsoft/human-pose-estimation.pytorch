@@ -1,8 +1,8 @@
 from __future__ import absolute_import, division, print_function
 
 import logging
-import time
 import os
+import time
 
 import numpy as np
 import torch
@@ -157,7 +157,7 @@ def validate(config, val_loader, val_dataset, model, criterion, output_dir,
 
             if i % config.PRINT_FREQ == 0:
                 msg = f'Test: [{i}/{len(val_loader)}]\t Time {batch_time.val:.3f} ' \
-                      f'({batch_time.avg:.3f})\t Loss {loss.val:.4f} ({loss.avg:.4f})\t ' \
+                      f'({batch_time.avg:.3f})\t Loss {losses.val:.4f} ({losses.avg:.4f})\t ' \
                       f'Accuracy {acc.val:.3f} ({acc.avg:.3f})'
                 logger.info(msg)
 

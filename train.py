@@ -1,9 +1,3 @@
-# ------------------------------------------------------------------------------
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License.
-# Written by Bin Xiao (Bin.Xiao@microsoft.com)
-# ------------------------------------------------------------------------------
-
 from __future__ import absolute_import, division, print_function
 
 import argparse
@@ -12,28 +6,20 @@ import pprint
 import shutil
 
 import torch
-import torch.nn.parallel
 import torch.backends.cudnn as cudnn
+import torch.nn.parallel
 import torch.optim
 import torch.utils.data
 import torch.utils.data.distributed
 import torchvision.transforms as transforms
 from tensorboardX import SummaryWriter
 
-import lib._init_paths
-from lib.core.config import config
-from lib.core.config import update_config
-from lib.core.config import update_dir
-from lib.core.config import get_model_name
-from lib.core.loss import JointsMSELoss
-from lib.core.function import train
-from lib.core.function import validate
-from lib.utils.utils import get_optimizer
-from lib.utils.utils import save_checkpoint
-from lib.utils.utils import create_logger
-
 import lib.dataset as dataset
 import models
+from lib.core.config import config, update_config, get_model_name
+from lib.core.function import train, validate
+from lib.core.loss import JointsMSELoss
+from lib.utils.utils import get_optimizer, save_checkpoint, create_logger
 
 
 def parse_args():

@@ -1,11 +1,11 @@
 from __future__ import absolute_import, division, print_function
 
-import os
 import logging
+import os
+from collections import OrderedDict
 
 import torch
 import torch.nn as nn
-from collections import OrderedDict
 
 BN_MOMENTUM = 0.1
 logger = logging.getLogger(__name__)

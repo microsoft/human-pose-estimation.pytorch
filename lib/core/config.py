@@ -1,9 +1,9 @@
 from __future__ import absolute_import, division, print_function
 
 import os
-import yaml
 
 import numpy as np
+import yaml
 from easydict import EasyDict as edict
 
 config = edict()

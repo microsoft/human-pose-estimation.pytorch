@@ -1,7 +1,7 @@
 from __future__ import absolute_import, division, print_function
 
-import numpy as np
 import cv2
+import numpy as np
 
 
 def flip_back(output_flipped, matched_parts):

@@ -1,10 +1,10 @@
 from __future__ import absolute_import, division, print_function
 
-from collections import OrderedDict
 import logging
 import os
-import json_tricks as json
+from collections import OrderedDict
 
+import json_tricks as json
 import numpy as np
 from scipy.io import loadmat, savemat
 

@@ -3,8 +3,8 @@ from __future__ import absolute_import, division, print_function
 import logging
 import os
 import pickle
-from collections import defaultdict
 from collections import OrderedDict
+from collections import defaultdict
 
 import json_tricks as json
 import numpy as np

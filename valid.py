@@ -1,10 +1,3 @@
-# ------------------------------------------------------------------------------
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License.
-# Written by Bin Xiao (Bin.Xiao@microsoft.com)
-# ------------------------------------------------------------------------------
-
-
 from __future__ import absolute_import, division, print_function
 
 import argparse
@@ -12,23 +5,19 @@ import os
 import pprint
 
 import torch
-import torch.nn.parallel
 import torch.backends.cudnn as cudnn
+import torch.nn.parallel
 import torch.optim
 import torch.utils.data
 import torch.utils.data.distributed
 import torchvision.transforms as transforms
 
-import pose_estimation._init_paths
-from lib.core.config import config
-from lib.core.config import update_config
-from lib.core.config import update_dir
-from lib.core.loss import JointsMSELoss
-from lib.core.function import validate
-from lib.utils.utils import create_logger
-
 import lib.dataset as dataset
-import models
+import lib.models as models
+from lib.core.config import config, update_config
+from lib.core.function import validate
+from lib.core.loss import JointsMSELoss
+from lib.utils.utils import create_logger
 
 
 def parse_args():
