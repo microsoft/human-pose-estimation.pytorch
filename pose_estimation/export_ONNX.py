@@ -68,7 +68,7 @@ def main():
     update_config(args.cfg)
     reset_config(config, args)
 	# output dir path
-    onnx_path = '../models/onnx/'
+    onnx_path = './models/onnx/'
 	
     logger, final_output_dir, tb_log_dir = create_logger(
     config, args.cfg, 'convert')
