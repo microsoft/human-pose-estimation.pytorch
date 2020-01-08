@@ -225,7 +225,7 @@ python pose_estimation\demo_picture.py --img pose_estimation\test\hugh_laurie.jp
 
 #### Result
 
-![result] (pose_estimation/test/result/hugh_laurie.jpg_result.jpg)
+![result] (https://github.com/BadMachine/human-pose-estimation.pytorch/blob/master/pose_estimation/test/result/hugh_laurie.jpg_result.jpg)
 
 ### Other Implementations
 - TensorFlow [[Version1](https://github.com/mks0601/TF-SimpleHumanPose)]
