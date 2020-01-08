@@ -226,6 +226,7 @@ python pose_estimation\demo_picture.py --img pose_estimation\test\hugh_laurie.jp
 #### Result
 
 ![result](https://github.com/BadMachine/human-pose-estimation.pytorch/blob/master/pose_estimation/test/result/hugh_laurie_result.jpg)
+>Script processing image via opencv dnn module
 
 ### Other Implementations
 - TensorFlow [[Version1](https://github.com/mks0601/TF-SimpleHumanPose)]
