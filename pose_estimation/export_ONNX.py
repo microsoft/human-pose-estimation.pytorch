@@ -69,6 +69,9 @@ def main():
     reset_config(config, args)
 	# output dir path
     onnx_path = '../models/onnx/'
+	
+    logger, final_output_dir, tb_log_dir = create_logger(
+    config, args.cfg, 'convert')
     if not os.path.isdir(onnx_path):
         logger.info('Creating ' + onnx_path + 'folder...')
         os.makedirs(onnx_path);
@@ -80,8 +83,7 @@ def main():
         height = documents['MODEL']['IMAGE_SIZE'][0]
         width = documents['MODEL']['IMAGE_SIZE'][1]
         		
-    logger, final_output_dir, tb_log_dir = create_logger(
-        config, args.cfg, 'convert')
+
 
     # cudnn related setting
     cudnn.benchmark = config.CUDNN.BENCHMARK
