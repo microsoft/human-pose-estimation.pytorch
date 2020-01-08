@@ -211,6 +211,22 @@ python pose_estimation/train.py \
     --cfg experiments/coco/resnet50/256x192_d256x3_adam_lr1e-3.yaml
 ```
 
+## Converting to ONNX
+To convert PyTorch model to ONNX format run script:
+```
+python pose_estimation/convert.py --cfg experiments/coco/resnet152/384x288_d256x3_adam_lr1e-3.yaml --model-file pose_estimation/pose_resnet_152_384x288.pth.tar 
+
+```
+## Visualization
+To show processed image run script:
+```
+python pose_estimation\demo_picture.py --img pose_estimation\test\hugh_laurie.jpg --model .\models\onnx\pose_resnet_152_384x288.onnx --type ONNX --width 656 --height 384 
+```
+
+#### Result
+
+![result] (pose_estimation/test/result/hugh_laurie.jpg_result.jpg)
+
 ### Other Implementations
 - TensorFlow [[Version1](https://github.com/mks0601/TF-SimpleHumanPose)]
 - PaddlePaddle [[Version1](https://github.com/PaddlePaddle/models/tree/develop/fluid/PaddleCV/human_pose_estimation)]
