@@ -7,7 +7,7 @@
 import cv2
 import argparse
 import numpy as np
-
+import os
 
 
 def parse_args():
@@ -92,6 +92,7 @@ def main():
 	#minimal probability
 	threshold = 0.1
 	
+	testpath, filename = os.path.split(args.img)
 	
 	original = cv2.imread(args.img)
 	image = np.copy(original)
@@ -169,6 +170,7 @@ def main():
 	
 	cv2.imshow('Original image', original)
 	cv2.imshow('Skeleton', image)
+	cv2.imwrite(testpath +'/result/'  + filename[:-4]+'_result' + '.jpg', image)
 	cv2.waitKey(0)
 	print(args)
 	
