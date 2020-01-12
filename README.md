@@ -228,6 +228,12 @@ python pose_estimation\demo_picture.py --img pose_estimation\test\hugh_laurie.jp
 ![result](https://github.com/BadMachine/human-pose-estimation.pytorch/blob/master/pose_estimation/test/result/hugh_laurie_result.jpg)
 >Script processing image via opencv dnn module
 
+
+#### To show video stream run script:
+```
+python pose_estimation\demo_video.py --model .\models\onnx\pose_resnet_152_384x288.onnx --type ONNX --width 656 --height 384 (--backend optional)
+```
+To improve performance you may use --backend CUDA (for ONNX) or --backend INFERENCE (for openvino inference engine)
 ### Other Implementations
 - TensorFlow [[Version1](https://github.com/mks0601/TF-SimpleHumanPose)]
 - PaddlePaddle [[Version1](https://github.com/PaddlePaddle/models/tree/develop/fluid/PaddleCV/human_pose_estimation)]
